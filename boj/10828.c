@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+// stack 구현
+
 size_t    arr_size(int *arr)
 {
     size_t    len;
