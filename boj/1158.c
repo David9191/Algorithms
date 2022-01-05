@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+// 요세푸스 문제
+
 int    main(void)
 {
     int    n, k, start = 0, end, * arr, * res;
