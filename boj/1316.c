@@ -1,23 +1,42 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
-int    checker(char *str) {
-    int    i = 0;
-    while (str[i] != '\0') {
-        
-        i++;
-    }
+static int	check_group_word(char *str)
+{
+	int	idx = 0, k;
+
+	while (str[idx])
+	{
+		k = 1;
+		while (str[idx] == str[idx + k])
+			idx++;
+		while (str[idx + k])
+		{
+			if (str[idx] == str[idx + k])
+				return (0);
+			k++;
+		}
+		idx++;
+	}
+	return (1);
 }
 
-int    main(void) {
-    char    str[101];
-    int    cnt = 0, n;
+int	main(void)
+{
+	char	*str;
+	int		cnt = 0, idx = 0, n = 0;
 
-    scanf("%d", &n);
-    for (int i = 0; i < n; i++) {
-        scanf("%s", str);
-        if (checker(str))
-            cnt++;
-    }
-    printf("%d\n", cnt);
+	str = calloc(sizeof(char), 101);
+	scanf("%d", &n);
+	while (idx < n)
+	{
+		scanf("%s", str);
+		if (strlen(str) == 1)
+			cnt++;
+		else
+			cnt += check_group_word(str);
+		idx++;
+	}
+	printf("%d\n", cnt);
 }
