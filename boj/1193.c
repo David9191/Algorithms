@@ -6,12 +6,21 @@
 
 int	main(void)
 {
-	int	in_case = 2, denominator = 1, numerator = 1, n = 0, idx = 1;
+	int	in_case = 3, n = 0, idx = 1, line = 0, x;
 
 	scanf("%d", &n);
+	if (n < 1)
+		return (0);
 	while (1)
 	{
-		
+		if ((line * (line - 1) / 2) < n && n <= (line * (line + 1) / 2))
+			break ;
+		line++;
 	}
+	x = line * (line + 1) / 2;
+	if (line % 2 == 0)
+		printf("%d/%d\n", line - (x - n), x - n + 1);
+	else
+		printf("%d/%d\n", x - n + 1, line - (x - n));
 	return (0);
 }
